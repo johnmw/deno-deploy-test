@@ -7,7 +7,7 @@ function App() {
   return (
     <html>
       <head>
-        <title>Hello from JSX</title>
+        <title>Hello from Deno Deploy and TSX</title>
         <link rel="stylesheet" href="style.css" />
       </head>
       <body>
