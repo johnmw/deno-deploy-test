@@ -27,6 +27,10 @@ addEventListener("fetch", (event) => {
   event.respondWith(response);
 });
 
+async function handleRequest(request: Request) {
+  console.log(`Test`);
+}
+
 // 
 //async function handleRequest(request: Request) {
   //const { pathname } = new URL(request.url);
