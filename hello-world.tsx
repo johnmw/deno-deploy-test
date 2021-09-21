@@ -11,11 +11,15 @@ function App() {
         <link rel="stylesheet" href="style.css" />
       </head>
       <body>
-        <h1>Hello world from Deno Deploy via Github - Testing Deploy with Typescript 2</h1>
+        <h1>Hello world from Deno Deploy</h1>
+        <p>Testing TSX and Static Asset Loading (css)</p>
+        <a href="https://github.com/johnmw/deno-deploy-test/blob/main/hello-world.tsx">Link to self on Github</a>
       </body>
     </html>
   );
 }
+
+// Request Handler
 
 async function handleRequest(request: Request) {
   const { pathname } = new URL(request.url);
@@ -43,48 +47,9 @@ async function handleRequest(request: Request) {
   return response;
 }
 
+// Main Event Listener
 
-// Original Deno
-addEventListener("fetch", (event) => {
-  // renderToString generates html string from JSX components.
-//   const response = new Response(renderToString(<App />), {
-//     headers: { "content-type": "text/html; charset=utf-8" },
-//   });
-
-  //event.respondWith(response);
+addEventListener("fetch", (event) => {  
   event.respondWith(handleRequest(event.request));
 });
 
-
-// 
-//async function handleRequest(request: Request) {
-  //const { pathname } = new URL(request.url);
-
-  // This is how the server works:
-  // 1. A request comes in for a specific asset.
-  // 2. We read the asset from the file system.
-  // 3. We send the asset back to the client.
-
-  // Check if the request is for style.css.
-  //   if (pathname.startsWith("/style.css")) {
-  //     // Read the style.css file from the file system.
-  //     const file = await Deno.readFile("./style.css");
-  //     // Respond to the request with the style.css file.
-  //     return new Response(file, {
-  //       headers: {
-  //         "content-type": "text/css",
-  //       },
-  //     });
-  //   }
-  
-  // renderToString generates html string from JSX components.
-  //   const response = new Response(renderToString(<App />), {
-  //     headers: { "content-type": "text/html; charset=utf-8" },
-  //   });
-
-  //   return response;
-  // });
-
-  // addEventListener("fetch", (event: FetchEvent) => {
-  //   event.respondWith(handleRequest(event.request));
-  // });
