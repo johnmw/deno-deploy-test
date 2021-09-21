@@ -1,1 +1,7 @@
-h1 { color: blue; }
+/* Testing Deno Static Assets */
+body {
+  font-family: monospace;
+  margin: 10%;
+  color: darkslateblue; 
+  background-color: gainsboro;
+}
