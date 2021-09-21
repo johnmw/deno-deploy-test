@@ -11,7 +11,7 @@ function App() {
         <link rel="stylesheet" href="style.css" />
       </head>
       <body>
-        <h1>Hello world from Deno Deploy via Github</h1>
+        <h1>Hello world from Deno Deploy via Github - testing responses</h1>
       </body>
     </html>
   );
