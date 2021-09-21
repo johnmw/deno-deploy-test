@@ -17,19 +17,25 @@ function App() {
   );
 }
 
+async function handleRequest(request: Request) {
+  const response = new Response(renderToString(<App />), {
+     headers: { "content-type": "text/html; charset=utf-8" },
+  });
+  return response;
+}
+
+
 // Original Deno
 addEventListener("fetch", (event) => {
   // renderToString generates html string from JSX components.
-  const response = new Response(renderToString(<App />), {
-    headers: { "content-type": "text/html; charset=utf-8" },
-  });
+//   const response = new Response(renderToString(<App />), {
+//     headers: { "content-type": "text/html; charset=utf-8" },
+//   });
 
-  event.respondWith(response);
+  //event.respondWith(response);
+  event.respondWith(handleRequest(event.request));
 });
 
-async function handleRequest(request: Request) {
-  console.log(`Test`);
-}
 
 // 
 //async function handleRequest(request: Request) {
