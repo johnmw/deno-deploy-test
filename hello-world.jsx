@@ -10,7 +10,7 @@ function App() {
         <title>Hello from JSX</title>
       </head>
       <body>
-        <h1>Hello world</h1>
+        <h1>Hello world from Deno Deploy via Github</h1>
       </body>
     </html>
   );
