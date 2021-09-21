@@ -17,7 +17,7 @@ function App() {
   );
 }
 
-async function handleRequest(request) {
+async function handleRequest(request: Request) {
   const response = new Response(renderToString(<App />), {
      headers: { "content-type": "text/html; charset=utf-8" },
   });
