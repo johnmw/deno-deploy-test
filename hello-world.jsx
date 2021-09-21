@@ -17,7 +17,7 @@ function App() {
   );
 }
 
-addEventListener("fetch", (event) => {
+async function handleRequest(request: Request) {
   const { pathname } = new URL(request.url);
 
   // This is how the server works:
@@ -42,5 +42,9 @@ addEventListener("fetch", (event) => {
     headers: { "content-type": "text/html; charset=utf-8" },
   });
 
-  event.respondWith(response);
+  return response;
+});
+
+addEventListener("fetch", (event: FetchEvent) => {
+  event.respondWith(handleRequest(event.request));
 });
