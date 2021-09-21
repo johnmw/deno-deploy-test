@@ -17,7 +17,18 @@ function App() {
   );
 }
 
-async function handleRequest(request: Request) {
+// Original Deno
+addEventListener("fetch", (event) => {
+  // renderToString generates html string from JSX components.
+  const response = new Response(renderToString(<App />), {
+    headers: { "content-type": "text/html; charset=utf-8" },
+  });
+
+  event.respondWith(response);
+});
+
+// 
+//async function handleRequest(request: Request) {
   //const { pathname } = new URL(request.url);
 
   // This is how the server works:
@@ -38,13 +49,13 @@ async function handleRequest(request: Request) {
   //   }
   
   // renderToString generates html string from JSX components.
-  const response = new Response(renderToString(<App />), {
-    headers: { "content-type": "text/html; charset=utf-8" },
-  });
+  //   const response = new Response(renderToString(<App />), {
+  //     headers: { "content-type": "text/html; charset=utf-8" },
+  //   });
 
-  return response;
-});
+  //   return response;
+  // });
 
-addEventListener("fetch", (event: FetchEvent) => {
-  event.respondWith(handleRequest(event.request));
-});
+  // addEventListener("fetch", (event: FetchEvent) => {
+  //   event.respondWith(handleRequest(event.request));
+  // });
